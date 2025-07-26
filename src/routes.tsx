@@ -13,11 +13,11 @@ const routes = createBrowserRouter([
                 index: true,
                 element: <Overview />,
             },
+            {
+                path: '*',
+                element: <NotFound />,
+            },
         ],
-    },
-    {
-        path: '*',
-        element: <NotFound />,
     },
 ]);
 

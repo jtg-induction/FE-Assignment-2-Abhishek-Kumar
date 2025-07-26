@@ -42,7 +42,7 @@ const fontFaceDeclarations = `
         font-weight: 700;
         src: url(${InterBoldWOFF2}) format('woff2'), 
         url(${InterBoldTTF}) format('truetype');
-      };n
+      };
     `;
 
 export const components: Components = {
