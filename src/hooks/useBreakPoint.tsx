@@ -1,0 +1,26 @@
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
+
+interface BreakpointsStates {
+    isMobile: boolean;
+    isTablet: boolean;
+    isDesktop: boolean;
+}
+
+/**
+ * Custom hook for easily use different breakpoints
+ *
+ * @returns {BreakpointsStates} : Contain different views for conditional rendering
+ */
+
+export default function useBreakPoints(): BreakpointsStates {
+    const theme = useTheme();
+
+    const isMobile: boolean = useMediaQuery(theme.breakpoints.down('md'));
+    const isTablet: boolean = useMediaQuery(
+        theme.breakpoints.between('md', 'lg'),
+    );
+    const isDesktop: boolean = useMediaQuery(theme.breakpoints.up('lg'));
+
+    return { isMobile, isTablet, isDesktop };
+}
