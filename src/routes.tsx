@@ -1,18 +1,25 @@
 import { createBrowserRouter } from 'react-router';
 
-import { Dashboard } from '@layouts/Dashboard';
+import { NavbarLayout } from '@layouts/NavbarLayout';
+import { NavbarSidebarLayout } from '@layouts/NavbarSidebarLayout';
 import { Overview } from '@pages/dashboard/Overview';
 import { NotFound } from '@pages/NotFound';
 
 const routes = createBrowserRouter([
     {
         path: '/',
-        element: <Dashboard />,
+        element: <NavbarSidebarLayout />,
         children: [
             {
                 index: true,
                 element: <Overview />,
             },
+        ],
+    },
+    {
+        path: '*',
+        element: <NavbarLayout />,
+        children: [
             {
                 path: '*',
                 element: <NotFound />,
