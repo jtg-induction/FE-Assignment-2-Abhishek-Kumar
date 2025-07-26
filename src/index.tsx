@@ -1,26 +1,27 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
-import { BrowserRouter } from 'react-router-dom';
+import { ErrorBoundary } from 'react-error-boundary';
+import { RouterProvider } from 'react-router';
+import routes from 'routes';
 
 import { CssBaseline, ThemeProvider } from '@mui/material';
 
 import { ContextProvider } from '@context/DataContext';
+import Error from '@pages/Error';
 import { theme } from '@theme';
-
-import App from './App';
 
 const rootElement = document.getElementById('root') as HTMLElement;
 
 createRoot(rootElement).render(
     <StrictMode>
-        <BrowserRouter>
-            <ThemeProvider theme={theme}>
+        <ThemeProvider theme={theme}>
+            <ContextProvider>
                 <CssBaseline />
-                <ContextProvider>
-                    <App />
-                </ContextProvider>
-            </ThemeProvider>
-        </BrowserRouter>
+                <ErrorBoundary fallback={<Error />}>
+                    <RouterProvider router={routes} />
+                </ErrorBoundary>
+            </ContextProvider>
+        </ThemeProvider>
     </StrictMode>,
 );
