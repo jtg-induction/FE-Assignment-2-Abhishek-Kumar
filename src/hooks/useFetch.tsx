@@ -1,11 +1,17 @@
-import { useEffect, useState } from 'react';
-
-import { useErrorBoundary } from 'react-error-boundary';
+import { useCallback, useState } from 'react';
 
 interface FetchState<T> {
     data: T | null;
     loading: boolean;
     error: string | null;
+    fetchData: (params: FetchParams) => Promise<void>;
+}
+
+interface FetchParams {
+    url: string;
+    method: string;
+    header?: HeadersInit;
+    body?: BodyInit | null;
 }
 
 /**
@@ -19,39 +25,31 @@ interface FetchState<T> {
  * const { data, loading, error } = useFetch<User[]>('/mock/users.json')
  */
 
-export default function useFetch<T>(url: string): FetchState<T> {
-    const { showBoundary } = useErrorBoundary();
-
+export default function useFetch<T>(): FetchState<T> {
     const [data, setData] = useState<T | null>(null);
-    const [loading, setLoading] = useState<boolean>(true);
+    const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await fetch(url);
-                const result = (await response.json()) as T;
-                setData(result);
-            } catch (err) {
-                if (err instanceof Error) {
-                    setError(err.message);
-                } else {
-                    setError('An error occurred during api call');
-                }
-                showBoundary(err);
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        fetchData().catch((err) => {
+    const fetchData = useCallback(async (params: FetchParams) => {
+        setLoading(true);
+        try {
+            const response = await fetch(params?.url, {
+                method: params?.method,
+                headers: params?.header,
+                body: params?.body,
+            });
+            const result = (await response.json()) as T;
+            setData(result);
+        } catch (err) {
             if (err instanceof Error) {
                 setError(err.message);
             } else {
                 setError('An error occurred during api call');
             }
-        });
-    }, [url, showBoundary]);
+        } finally {
+            setLoading(false);
+        }
+    }, []);
 
-    return { data, loading, error };
+    return { fetchData, data, loading, error };
 }

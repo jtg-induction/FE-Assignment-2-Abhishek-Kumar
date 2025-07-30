@@ -7,7 +7,7 @@ import routes from 'routes';
 
 import { CssBaseline, ThemeProvider } from '@mui/material';
 
-import { ContextProvider } from '@context/DataContext';
+import { DataContextProvider } from '@context/DataContext';
 import Error from '@pages/Error';
 import { theme } from '@theme';
 
@@ -16,12 +16,12 @@ const rootElement = document.getElementById('root') as HTMLElement;
 createRoot(rootElement).render(
     <StrictMode>
         <ThemeProvider theme={theme}>
-            <ContextProvider>
+            <DataContextProvider>
                 <CssBaseline />
                 <ErrorBoundary fallback={<Error />}>
                     <RouterProvider router={routes} />
                 </ErrorBoundary>
-            </ContextProvider>
+            </DataContextProvider>
         </ThemeProvider>
     </StrictMode>,
 );

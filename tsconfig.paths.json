@@ -6,12 +6,13 @@
             "@constant": ["constant/index"],
             "@theme": ["theme/index"],
             "@pages/*": ["pages/*"],
-            "@component/*": ["components/*"],
-            "@type/*": ["types/*"],
+            "@components/*": ["components/*"],
+            "@models/*": ["models/*"],
             "@data/*": ["data/*"],
             "@hooks/*": ["hooks/*"],
             "@utils/*": ["utils/*"],
-            "@context/*": ["context/*"]
+            "@context/*": ["context/*"],
+            "@layouts/*": ["layouts/*"]
         }
     }
 }

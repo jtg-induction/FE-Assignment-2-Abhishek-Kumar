@@ -14,13 +14,11 @@ interface BreakpointsStates {
  */
 
 export default function useBreakPoints(): BreakpointsStates {
-    const theme = useTheme();
+    const { breakpoints } = useTheme();
 
-    const isMobile: boolean = useMediaQuery(theme.breakpoints.down('md'));
-    const isTablet: boolean = useMediaQuery(
-        theme.breakpoints.between('md', 'lg'),
-    );
-    const isDesktop: boolean = useMediaQuery(theme.breakpoints.up('lg'));
+    const isMobile: boolean = useMediaQuery(breakpoints.down('md'));
+    const isTablet: boolean = useMediaQuery(breakpoints.between('md', 'lg'));
+    const isDesktop: boolean = useMediaQuery(breakpoints.up('lg'));
 
     return { isMobile, isTablet, isDesktop };
 }

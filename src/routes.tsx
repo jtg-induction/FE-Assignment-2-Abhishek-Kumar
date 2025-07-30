@@ -1,6 +1,6 @@
 import { createBrowserRouter } from 'react-router';
 
-import Dashboard from '@pages/dashboard/Dashboard';
+import Dashboard from '@layouts/Dashboard';
 import Overview from '@pages/dashboard/Overview';
 import NotFound from '@pages/NotFound';
 

@@ -1,46 +1,35 @@
-import React, { createContext, ReactNode, useContext, useState } from 'react';
+import {
+    createContext,
+    Dispatch,
+    ReactNode,
+    SetStateAction,
+    useState,
+} from 'react';
 
-import { ProductInterface } from '@type/product';
-
-type AuthUser = {
-    name: string;
-    email: string;
-};
+import { ProductInterface } from '@models/product';
+import { AuthUser } from '@models/user';
 
 type DataContextType = {
-    user: AuthUser | null;
-    setUser: React.Dispatch<React.SetStateAction<AuthUser | null>>;
+    user: AuthUser;
+    setUser: Dispatch<SetStateAction<AuthUser>>;
 
-    products: ProductInterface[] | null;
-    setProducts: React.Dispatch<
-        React.SetStateAction<ProductInterface[] | null>
-    >;
+    products: ProductInterface[];
+    setProducts: Dispatch<SetStateAction<ProductInterface[]>>;
 };
 
-const mockUser: AuthUser = {
-    name: 'Abhishek',
-    email: 'abc@jtg',
-};
+const DataContext = createContext<DataContextType>({} as DataContextType);
 
-const DataContext = createContext<DataContextType | undefined>(undefined);
-
-export const ContextProvider: React.FC<{ children: ReactNode }> = ({
+export const DataContextProvider: React.FC<{ children: ReactNode }> = ({
     children,
+}: {
+    children: ReactNode;
 }) => {
-    const [user, setUser] = useState<AuthUser | null>(mockUser);
-    const [products, setProducts] = useState<ProductInterface[] | null>(null);
+    const [user, setUser] = useState<AuthUser>({} as AuthUser);
+    const [products, setProducts] = useState<ProductInterface[]>([]);
 
     return (
         <DataContext.Provider value={{ user, setUser, products, setProducts }}>
             {children}
         </DataContext.Provider>
     );
-};
-
-export const useDataContext = (): DataContextType => {
-    const context = useContext(DataContext);
-    if (!context) {
-        throw new Error('useUserContext must be used within a UserProvider');
-    }
-    return context;
 };
