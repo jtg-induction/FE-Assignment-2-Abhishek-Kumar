@@ -19,12 +19,11 @@ type DataContextType = {
 
 const DataContext = createContext<DataContextType>({} as DataContextType);
 
-export const DataContextProvider: React.FC<{ children: ReactNode }> = ({
-    children,
-}: {
-    children: ReactNode;
-}) => {
-    const [user, setUser] = useState<AuthUser>({} as AuthUser);
+export const DataContextProvider = ({ children }: { children: ReactNode }) => {
+    const [user, setUser] = useState<AuthUser>({
+        name: '',
+        email: '',
+    });
     const [products, setProducts] = useState<ProductInterface[]>([]);
 
     return (
