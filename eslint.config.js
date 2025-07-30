@@ -83,7 +83,7 @@ export default tseslint.config(
                     format: ['PascalCase'],
                 },
             ],
-            'arrow-body-style': ['error', 'as-needed'],
+            'arrow-body-style': 'off',
         },
         /* Specify React version for eslint-plugin-react */
         settings: {

@@ -1,8 +1,14 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
+import { ErrorBoundary } from 'react-error-boundary';
+import { RouterProvider } from 'react-router';
+import routes from 'routes';
+
 import { CssBaseline, ThemeProvider } from '@mui/material';
 
+import { DataContextProvider } from '@context/DataContext';
+import Error from '@pages/Error';
 import { theme } from '@theme';
 
 const rootElement = document.getElementById('root') as HTMLElement;
@@ -10,8 +16,12 @@ const rootElement = document.getElementById('root') as HTMLElement;
 createRoot(rootElement).render(
     <StrictMode>
         <ThemeProvider theme={theme}>
-            <CssBaseline />
-            <h1>Hello World</h1>
+            <DataContextProvider>
+                <CssBaseline />
+                <ErrorBoundary fallback={<Error />}>
+                    <RouterProvider router={routes} />
+                </ErrorBoundary>
+            </DataContextProvider>
         </ThemeProvider>
     </StrictMode>,
 );
