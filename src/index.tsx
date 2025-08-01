@@ -8,7 +8,7 @@ import routes from 'routes';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 
 import { DataContextProvider } from '@context/DataContext';
-import Error from '@pages/Error';
+import { Error } from '@pages/Error';
 import { theme } from '@theme';
 
 const rootElement = document.getElementById('root') as HTMLElement;

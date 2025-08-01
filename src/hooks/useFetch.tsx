@@ -25,7 +25,7 @@ interface FetchParams {
  * const { data, loading, error } = useFetch<User[]>('/mock/users.json')
  */
 
-export default function useFetch<T>(): FetchState<T> {
+export function useFetch<T>(): FetchState<T> {
     const [data, setData] = useState<T | null>(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);

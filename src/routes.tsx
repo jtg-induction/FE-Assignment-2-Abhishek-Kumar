@@ -1,8 +1,8 @@
 import { createBrowserRouter } from 'react-router';
 
-import Dashboard from '@layouts/Dashboard';
-import Overview from '@pages/dashboard/Overview';
-import NotFound from '@pages/NotFound';
+import { Dashboard } from '@layouts/Dashboard';
+import { Overview } from '@pages/dashboard/Overview';
+import { NotFound } from '@pages/NotFound';
 
 const routes = createBrowserRouter([
     {
@@ -13,11 +13,11 @@ const routes = createBrowserRouter([
                 index: true,
                 element: <Overview />,
             },
+            {
+                path: '*',
+                element: <NotFound />,
+            },
         ],
-    },
-    {
-        path: '*',
-        element: <NotFound />,
     },
 ]);
 

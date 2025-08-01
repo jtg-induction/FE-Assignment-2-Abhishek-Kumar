@@ -1,9 +1,9 @@
-const Overview: React.FC = () => {
+import Box from '@mui/material/Box';
+
+export const Overview = () => {
     return (
-        <>
-            <div>Overview</div>
-        </>
+        <Box color="primary" sx={{ height: 100 }}>
+            Overview
+        </Box>
     );
 };
-
-export default Overview;

@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "name": "Wireless Headphones",
+        "category": "Electronics",
+        "saleCount": 340
+    },
+    {
+        "id": 2,
+        "name": "Yoga Mat",
+        "category": "Fitness",
+        "saleCount": 125
+    },
+    {
+        "id": 3,
+        "name": "Stainless Steel Water Bottle",
+        "category": "Kitchen",
+        "saleCount": 289
+    },
+    {
+        "id": 4,
+        "name": "Bluetooth Speaker",
+        "category": "Electronics",
+        "saleCount": 450
+    },
+    {
+        "id": 5,
+        "name": "Cotton T-Shirt",
+        "category": "Apparel",
+        "saleCount": 612
+    },
+    {
+        "id": 6,
+        "name": "Notebook Set",
+        "category": "Stationery",
+        "saleCount": 195
+    },
+    {
+        "id": 7,
+        "name": "Gaming Mouse",
+        "category": "Electronics",
+        "saleCount": 372
+    },
+    {
+        "id": 8,
+        "name": "LED Desk Lamp",
+        "category": "Home Decor",
+        "saleCount": 240
+    },
+    {
+        "id": 9,
+        "name": "Sneakers",
+        "category": "Footwear",
+        "saleCount": 510
+    },
+    {
+        "id": 10,
+        "name": "Ceramic Coffee Mug",
+        "category": "Kitchen",
+        "saleCount": 418
+    }
+]

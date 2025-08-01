@@ -17,12 +17,16 @@ type DataContextType = {
     setProducts: Dispatch<SetStateAction<ProductInterface[]>>;
 };
 
-const DataContext = createContext<DataContextType>({} as DataContextType);
+export const DataContext = createContext<DataContextType>(
+    {} as DataContextType,
+);
 
 export const DataContextProvider = ({ children }: { children: ReactNode }) => {
     const [user, setUser] = useState<AuthUser>({
         name: '',
         email: '',
+        avatar: '',
+        notifications: 0,
     });
     const [products, setProducts] = useState<ProductInterface[]>([]);
 

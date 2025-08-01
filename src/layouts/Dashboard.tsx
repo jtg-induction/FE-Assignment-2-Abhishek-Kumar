@@ -1,12 +1,12 @@
 import { Outlet } from 'react-router';
 
-const Dashboard: React.FC = () => {
+import { Navbar } from '@components/Navbar';
+
+export const Dashboard = () => {
     return (
         <div>
-            Dashboard
+            <Navbar />
             <Outlet />
         </div>
     );
 };
-
-export default Dashboard;
