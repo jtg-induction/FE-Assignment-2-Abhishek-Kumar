@@ -3,68 +3,57 @@ import { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 
 import FormatAlignLeftIcon from '@mui/icons-material/FormatAlignLeft';
-import { Divider, useTheme } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
+import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import Toolbar from '@mui/material/Toolbar';
 
 import Logo from '@assets/images/Logo.svg';
-import AutoSearch from '@components/AutoSearch/AutoSearch.component';
-import NotificationIcon from '@components/Navbar/NotificationIcon';
-import UserAvatar from '@components/user/UserAvatar';
+import { AutoSearch } from '@components/AutoSearch';
+import { Notification } from '@components/Notification';
+import { UserAvatar } from '@components/UserAvatar';
 import { ProductsApiPath } from '@constant';
 import { DataContext } from '@context/DataContext';
-import useFetch from '@hooks/useFetch';
+import { useFetch } from '@hooks/useFetch';
 import { ProductInterface } from '@models/product';
 
-const Navbar = () => {
+import { useStyles } from './Navbar.styles';
+
+export const Navbar = () => {
     const navigate = useNavigate();
-    const { palette, breakpoints, spacing } = useTheme();
+
+    const { classes } = useStyles();
 
     const { setProducts } = useContext(DataContext);
 
     // Fetch Product data using custom hooks
-    const { data: ProductData, fetchData } = useFetch<ProductInterface[]>();
+    const { data: productData, fetchData } = useFetch<ProductInterface[]>();
 
     useEffect(() => {
-        const ProductApi = async () => {
-            await fetchData({
-                url: String(ProductsApiPath),
-                method: 'GET',
-            });
-        };
-        void ProductApi();
-    }, [fetchData]);
+        fetchData({
+            url: String(ProductsApiPath),
+            method: 'GET',
+        });
+    }, []);
 
     // Store product data in context so that can user in other components
     useEffect(() => {
-        if (ProductData) setProducts(ProductData);
-    }, [ProductData, setProducts]);
+        if (productData) setProducts(productData);
+    }, [productData]);
 
     return (
         <Box sx={{ flexGrow: 1 }}>
-            <AppBar
-                position="sticky"
-                sx={{
-                    bgcolor: palette.background.paper,
-                    boxShadow: 0,
-                }}
-            >
+            <AppBar position="sticky" className={classes.header}>
                 <Toolbar>
                     <IconButton
                         size="large"
                         edge="start"
                         color="inherit"
                         aria-label="open drawer"
-                        sx={{
-                            mr: 4,
-                            [breakpoints.up('lg')]: {
-                                display: 'none',
-                            },
-                        }}
+                        className={classes['menu-button']}
                     >
                         <FormatAlignLeftIcon />
                     </IconButton>
@@ -78,12 +67,7 @@ const Navbar = () => {
                         <Box
                             component="a"
                             href="/"
-                            sx={{
-                                display: 'none',
-                                [breakpoints.up('lg')]: {
-                                    display: 'flex',
-                                },
-                            }}
+                            className={classes['logo-container']}
                         >
                             <img src={Logo} alt="logo" />
                         </Box>
@@ -91,18 +75,10 @@ const Navbar = () => {
                         {/* AutoComplete */}
                         <Paper
                             elevation={2}
-                            sx={{
-                                borderRadius: 4,
-                                minWidth: spacing(100),
-                                display: 'none',
-
-                                [breakpoints.up('md')]: {
-                                    display: 'block',
-                                },
-                            }}
+                            className={classes['auto-search-container']}
                         >
                             <AutoSearch<ProductInterface>
-                                options={ProductData || []}
+                                options={productData || []}
                                 getOptionLabel={(
                                     option: string | ProductInterface,
                                 ) => {
@@ -110,15 +86,13 @@ const Navbar = () => {
                                         return option;
                                     return option?.name;
                                 }}
-                                onChangeHandler={async (
+                                onChangeHandler={(
                                     selectedProduct: ProductInterface | string,
                                 ) => {
                                     if (typeof selectedProduct === 'string') {
-                                        await navigate(
-                                            `/product/${selectedProduct}`,
-                                        );
+                                        navigate(`/product/${selectedProduct}`);
                                     } else {
-                                        await navigate(
+                                        navigate(
                                             `/product/${selectedProduct?.name}`,
                                         );
                                     }
@@ -130,7 +104,7 @@ const Navbar = () => {
                     <Box sx={{ flexGrow: 1 }} />
 
                     <Stack direction="row" alignItems="center" spacing={1}>
-                        <NotificationIcon />
+                        <Notification />
                         <UserAvatar />
                     </Stack>
                 </Toolbar>
@@ -139,5 +113,3 @@ const Navbar = () => {
         </Box>
     );
 };
-
-export default Navbar;

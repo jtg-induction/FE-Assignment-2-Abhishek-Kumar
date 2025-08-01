@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 
 import { IconButton } from '@mui/material';
 import Avatar from '@mui/material/Avatar';
@@ -9,10 +9,30 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import Popover from '@mui/material/Popover';
 
+import { UserApiPath } from '@constant';
 import { DataContext } from '@context/DataContext';
+import { useFetch } from '@hooks/useFetch';
+import { AuthUser } from '@models/user';
 
-const UserAvatar = () => {
+export const UserAvatar = () => {
     const { user } = useContext(DataContext);
+
+    const { setUser } = useContext(DataContext);
+    const { fetchData, data } = useFetch<AuthUser>();
+
+    /**
+     * Fetch User details and store into context
+     */
+    useEffect(() => {
+        fetchData({
+            url: String(UserApiPath),
+            method: 'GET',
+        });
+    }, []);
+
+    useEffect(() => {
+        if (data) setUser(data);
+    }, [data]);
 
     const [avatarAnchorEl, setAvatarAnchorEl] =
         React.useState<HTMLButtonElement | null>(null);
@@ -59,7 +79,7 @@ const UserAvatar = () => {
                     horizontal: 'left',
                 }}
             >
-                <List sx={{}}>
+                <List>
                     <ListItem>
                         <ListItemText>{user?.name}</ListItemText>
                     </ListItem>
@@ -72,5 +92,3 @@ const UserAvatar = () => {
         </Box>
     );
 };
-
-export default UserAvatar;

@@ -13,7 +13,7 @@ interface BreakpointsStates {
  * @returns {BreakpointsStates} : Contain different views for conditional rendering
  */
 
-export default function useBreakPoints(): BreakpointsStates {
+export function useBreakPoints(): BreakpointsStates {
     const { breakpoints } = useTheme();
 
     const isMobile: boolean = useMediaQuery(breakpoints.down('md'));

@@ -6,26 +6,27 @@ import TextField from '@mui/material/TextField';
 
 import { AutoSearchProps } from '@components/AutoSearch/AutoSearch.types';
 
-const AutoSearch = <T,>(props: AutoSearchProps<T>) => {
+import { useStyles } from './AutoSearch.styles';
+
+export const AutoSearch = <T,>({
+    options,
+    renderOption,
+    getOptionLabel,
+    onChangeHandler,
+}: AutoSearchProps<T>) => {
+    const { classes } = useStyles();
+
     return (
         <Autocomplete
             freeSolo
             disableClearable
-            sx={(theme) => ({
-                borderRadius: 4,
-                backgroundColor: theme.palette.background.default,
-                width: '100%',
-                ' & .MuiInputBase-root': {
-                    borderRadius: 4,
-                    py: 1,
-                },
-            })}
+            className={classes['auto-search']}
             onChange={(_, value) => {
-                void props.onChangeHandler?.(value);
+                onChangeHandler?.(value);
             }}
-            options={props.options}
-            renderOption={props?.renderOption}
-            getOptionLabel={props?.getOptionLabel}
+            options={options}
+            renderOption={renderOption}
+            getOptionLabel={getOptionLabel}
             renderInput={(params: AutocompleteRenderInputParams) => (
                 <TextField
                     {...params}
@@ -46,5 +47,3 @@ const AutoSearch = <T,>(props: AutoSearchProps<T>) => {
         />
     );
 };
-
-export default AutoSearch;

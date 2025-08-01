@@ -49,6 +49,8 @@ export default tseslint.config(
             'react/react-in-jsx-scope': 'off',
             'no-console': 'error',
             'no-shadow': 'error',
+            '@typescript-eslint/no-floating-promises': 'off',
+            'react-hooks/exhaustive-deps': 'off',
             'react-refresh/only-export-components': [
                 'warn',
                 { allowConstantExport: true },

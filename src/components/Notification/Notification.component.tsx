@@ -8,7 +8,7 @@ import IconButton from '@mui/material/IconButton';
 
 import { DataContext } from '@context/DataContext';
 
-const NotificationIcon = () => {
+export const Notification = () => {
     const { user } = useContext(DataContext);
     const navigate = useNavigate();
 
@@ -17,7 +17,9 @@ const NotificationIcon = () => {
             size="large"
             aria-label="show notifications"
             color="inherit"
-            onClick={() => void navigate('/notifications')}
+            onClick={() => {
+                navigate('/notifications');
+            }}
         >
             <Badge badgeContent={user?.notifications} color="secondary">
                 <NotificationsIcon />
@@ -25,5 +27,3 @@ const NotificationIcon = () => {
         </IconButton>
     );
 };
-
-export default NotificationIcon;

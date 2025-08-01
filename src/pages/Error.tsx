@@ -1,5 +1,3 @@
-const Error: React.FC = () => {
+export const Error = () => {
     return <div>Error</div>;
 };
-
-export default Error;

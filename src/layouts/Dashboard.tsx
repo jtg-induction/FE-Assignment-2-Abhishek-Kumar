@@ -1,30 +1,8 @@
-import { useContext, useEffect } from 'react';
-
 import { Outlet } from 'react-router';
 
-import Navbar from '@components/Navbar';
-import { UserApiPath } from '@constant';
-import { DataContext } from '@context/DataContext';
-import useFetch from '@hooks/useFetch';
-import { AuthUser } from '@models/user';
+import { Navbar } from '@components/Navbar';
 
-const Dashboard: React.FC = () => {
-    const { setUser } = useContext(DataContext);
-    const { fetchData, data } = useFetch<AuthUser>();
-
-    useEffect(() => {
-        const fetchUserDetails = async () => {
-            await fetchData({
-                url: String(UserApiPath),
-                method: 'GET',
-            });
-            if (data) {
-                setUser(data);
-            }
-        };
-        void fetchUserDetails();
-    });
-
+export const Dashboard: React.FC = () => {
     return (
         <div>
             <Navbar />
@@ -32,5 +10,3 @@ const Dashboard: React.FC = () => {
         </div>
     );
 };
-
-export default Dashboard;

@@ -1,6 +1,6 @@
 export type AutoSearchProps<T> = {
     options: T[];
-    onChangeHandler?: (value: T | string) => Promise<void>;
+    onChangeHandler?: (value: T | string) => void;
     getOptionLabel: (option: T | string) => string;
     renderOption?: (
         props: React.HTMLAttributes<HTMLLIElement>,

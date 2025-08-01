@@ -22,7 +22,8 @@
         "react": "19.0.0",
         "react-dom": "19.0.0",
         "react-error-boundary": "^6.0.0",
-        "react-router": "^7.7.1"
+        "react-router": "^7.7.1",
+        "tss-react": "^4.9.19"
     },
     "devDependencies": {
         "@types/eslint-plugin-jsx-a11y": "6",
