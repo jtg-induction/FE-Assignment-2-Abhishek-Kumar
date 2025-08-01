@@ -9,21 +9,21 @@ export const useStyles = makeStyles()(
             boxShadow: 'none',
         },
 
-        'menu-button': {
-            mr: spacing(4),
+        menuButton: {
+            marginRight: spacing(4),
             [breakpoints.up('lg')]: {
                 display: 'none',
             },
         },
 
-        'logo-container': {
+        logoContainer: {
             display: 'none',
             [breakpoints.up('lg')]: {
                 display: 'flex',
             },
         },
 
-        'auto-search-container': {
+        autoSearchContainer: {
             borderRadius: spacing(4),
             minWidth: spacing(100),
             display: 'none',

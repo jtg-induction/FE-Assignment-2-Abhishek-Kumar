@@ -20,7 +20,7 @@ export const AutoSearch = <T,>({
         <Autocomplete
             freeSolo
             disableClearable
-            className={classes['auto-search']}
+            className={classes.autoSearch}
             onChange={(_, value) => {
                 onChangeHandler?.(value);
             }}

@@ -1,2 +1,4 @@
-export const ProductsApiPath = '/data/products.json';
-export const UserApiPath = '/data/user.json';
+export const apiUrls = {
+    GET_PRODUCTS: '/data/products.json',
+    GET_USER_DETAILS: '/data/user.json',
+};

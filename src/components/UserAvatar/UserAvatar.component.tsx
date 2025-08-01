@@ -9,15 +9,13 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import Popover from '@mui/material/Popover';
 
-import { UserApiPath } from '@constant';
+import { apiUrls } from '@constant';
 import { DataContext } from '@context/DataContext';
 import { useFetch } from '@hooks/useFetch';
 import { AuthUser } from '@models/user';
 
 export const UserAvatar = () => {
-    const { user } = useContext(DataContext);
-
-    const { setUser } = useContext(DataContext);
+    const { user, setUser } = useContext(DataContext);
     const { fetchData, data } = useFetch<AuthUser>();
 
     /**
@@ -25,7 +23,7 @@ export const UserAvatar = () => {
      */
     useEffect(() => {
         fetchData({
-            url: String(UserApiPath),
+            url: String(apiUrls.GET_USER_DETAILS),
             method: 'GET',
         });
     }, []);

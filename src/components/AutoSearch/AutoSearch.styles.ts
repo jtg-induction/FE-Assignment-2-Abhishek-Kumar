@@ -3,7 +3,7 @@ import { makeStyles } from 'tss-react/mui';
 import { Theme } from '@mui/material';
 
 export const useStyles = makeStyles()((theme: Theme) => ({
-    'auto-search': {
+    autoSearch: {
         borderRadius: theme.spacing(16),
         backgroundColor: theme.palette.background.default,
         width: '100%',

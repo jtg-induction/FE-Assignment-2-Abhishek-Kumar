@@ -15,7 +15,7 @@ import Logo from '@assets/images/Logo.svg';
 import { AutoSearch } from '@components/AutoSearch';
 import { Notification } from '@components/Notification';
 import { UserAvatar } from '@components/UserAvatar';
-import { ProductsApiPath } from '@constant';
+import { apiUrls } from '@constant';
 import { DataContext } from '@context/DataContext';
 import { useFetch } from '@hooks/useFetch';
 import { ProductInterface } from '@models/product';
@@ -34,7 +34,7 @@ export const Navbar = () => {
 
     useEffect(() => {
         fetchData({
-            url: String(ProductsApiPath),
+            url: String(apiUrls.GET_PRODUCTS),
             method: 'GET',
         });
     }, []);
@@ -53,7 +53,7 @@ export const Navbar = () => {
                         edge="start"
                         color="inherit"
                         aria-label="open drawer"
-                        className={classes['menu-button']}
+                        className={classes.menuButton}
                     >
                         <FormatAlignLeftIcon />
                     </IconButton>
@@ -67,7 +67,7 @@ export const Navbar = () => {
                         <Box
                             component="a"
                             href="/"
-                            className={classes['logo-container']}
+                            className={classes.logoContainer}
                         >
                             <img src={Logo} alt="logo" />
                         </Box>
@@ -75,7 +75,7 @@ export const Navbar = () => {
                         {/* AutoComplete */}
                         <Paper
                             elevation={2}
-                            className={classes['auto-search-container']}
+                            className={classes.autoSearchContainer}
                         >
                             <AutoSearch<ProductInterface>
                                 options={productData || []}
