@@ -1,7 +1,10 @@
+import { Grid2 as Grid } from '@mui/material';
 import Box from '@mui/material/Box';
 
 import { ImageGrid } from '@components/ImageGrid';
+import { LatestCustomers } from '@components/LatestCustomers';
 import { Sales } from '@components/Sales';
+import { TopProducts } from '@components/TopProducts';
 
 export const Overview = () => {
     return (
@@ -14,6 +17,14 @@ export const Overview = () => {
         >
             <ImageGrid />
             <Sales />
+            <Grid container spacing={4}>
+                <Grid size={{ xs: 12, lg: 5, xl: 3 }}>
+                    <LatestCustomers />
+                </Grid>
+                <Grid size={{ xs: 12, lg: 7, xl: 9 }}>
+                    <TopProducts />
+                </Grid>
+            </Grid>
             Overview
         </Box>
     );
