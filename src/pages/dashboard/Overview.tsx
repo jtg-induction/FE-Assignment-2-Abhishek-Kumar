@@ -1,10 +1,12 @@
 import { Grid2 as Grid } from '@mui/material';
 import Box from '@mui/material/Box';
 
+import { Footer } from '@components/Footer';
 import { ImageGrid } from '@components/ImageGrid';
 import { LatestCustomers } from '@components/LatestCustomers';
 import { Sales } from '@components/Sales';
 import { TopProducts } from '@components/TopProducts';
+import { Transactions } from '@components/Transactions';
 
 export const Overview = () => {
     return (
@@ -25,6 +27,8 @@ export const Overview = () => {
                     <TopProducts />
                 </Grid>
             </Grid>
+            <Transactions />
+            <Footer />
         </Box>
     );
 };
