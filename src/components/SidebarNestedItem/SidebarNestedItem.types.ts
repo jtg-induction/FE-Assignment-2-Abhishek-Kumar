@@ -6,5 +6,5 @@ export interface SidebarNestedItemProps {
     label: string;
     Icon: ElementType;
     divider?: boolean;
-    subItems: SidebarSubItem[] | undefined;
+    subItems?: SidebarSubItem[];
 }

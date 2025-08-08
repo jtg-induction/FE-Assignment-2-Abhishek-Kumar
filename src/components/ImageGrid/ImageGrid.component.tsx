@@ -20,7 +20,7 @@ export const ImageGrid = () => {
                     cols={isMobile ? 1 : item.col || 1}
                     rows={isMobile ? 1 : item.row || 1}
                 >
-                    <img src={item?.src} alt={item?.alt} loading="lazy" />
+                    <img src={item.src} alt={item.alt} loading="lazy" />
                 </ImageListItem>
             ))}
         </ImageList>

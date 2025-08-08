@@ -33,10 +33,10 @@ export function useFetch<T>(): FetchState<T> {
     const fetchData = useCallback(async (params: FetchParams) => {
         setLoading(true);
         try {
-            const response = await fetch(params?.url, {
-                method: params?.method,
-                headers: params?.header,
-                body: params?.body,
+            const response = await fetch(params.url, {
+                method: params.method,
+                headers: params.header,
+                body: params.body,
             });
             const result = (await response.json()) as T;
             setData(result);

@@ -53,13 +53,13 @@ export const SidebarNestedItem = ({
                             <ListItemButton
                                 sx={{ pl: 18 }}
                                 key={index}
-                                selected={location.pathname === item?.path}
+                                selected={location.pathname === item.path}
                                 className={classes.subItemButton}
                                 onClick={() => {
-                                    navigate(item?.path);
+                                    navigate(item.path);
                                 }}
                             >
-                                <ListItemText primary={item?.label} />
+                                <ListItemText primary={item.label} />
                             </ListItemButton>
                         );
                     })}
