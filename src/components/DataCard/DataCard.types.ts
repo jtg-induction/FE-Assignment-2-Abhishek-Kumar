@@ -3,4 +3,5 @@ export interface DataCardPropsInterface {
     description: string;
     value: number | string;
     avatar?: string;
+    caption?: string;
 }

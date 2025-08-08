@@ -17,21 +17,25 @@ export const TopProducts = () => {
             <Typography variant="h3">Top Products</Typography>
 
             <Stack mt={4}>
-                {products.slice(0, 6).map((item, index) => {
-                    return (
-                        <>
-                            <DataCard
-                                title={item.name}
-                                description={item.category}
-                                value={formatNumber(item.saleCount)}
-                                key={index}
-                            />
-                            {index < products.length - 1 && index < 5 && (
-                                <Divider />
-                            )}
-                        </>
-                    );
-                })}
+                {products
+                    .sort((a, b) => b.saleCount - a.saleCount)
+                    .slice(0, 6)
+                    .map((item, index) => {
+                        return (
+                            <>
+                                <DataCard
+                                    title={item.name}
+                                    description={item.category}
+                                    value={formatNumber(item.saleCount)}
+                                    caption="sales"
+                                    key={index}
+                                />
+                                {index < products.length - 1 && index < 5 && (
+                                    <Divider />
+                                )}
+                            </>
+                        );
+                    })}
             </Stack>
         </Paper>
     );

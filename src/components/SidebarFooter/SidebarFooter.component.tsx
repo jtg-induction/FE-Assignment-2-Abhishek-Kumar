@@ -15,7 +15,7 @@ export const SidebarFooter = () => {
             justifyContent="center"
             my={2}
         >
-            {sidebarFooterData?.map(({ Icon, path }, index) => (
+            {sidebarFooterData.map(({ Icon, path }, index) => (
                 <IconButton
                     key={index}
                     sx={({ palette }) => ({ color: palette.text.primary })}

@@ -9,6 +9,7 @@ export const DataCard = ({
     description,
     value,
     avatar,
+    caption,
 }: DataCardPropsInterface) => {
     return (
         <Box
@@ -28,11 +29,9 @@ export const DataCard = ({
             </Box>
             <Box display="flex" gap={1}>
                 <Typography variant="h4">{value}</Typography>
-                {!avatar && (
-                    <Typography variant="caption" color="textSecondary">
-                        sales
-                    </Typography>
-                )}
+                <Typography variant="caption" color="textSecondary">
+                    {caption}
+                </Typography>
             </Box>
         </Box>
     );

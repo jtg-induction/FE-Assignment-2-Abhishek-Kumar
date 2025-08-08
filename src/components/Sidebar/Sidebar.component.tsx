@@ -19,21 +19,21 @@ export const Sidebar = ({ isOpen, setIsOpen }: SidebarPropsInterface) => {
     const drawer = (
         <List>
             {sidebarData.map((item, index) =>
-                item?.path ? (
+                item.path ? (
                     <SidebarItem
-                        Icon={item?.icon}
-                        label={item?.label}
-                        path={item?.path}
-                        divider={item?.divider}
-                        badge={item?.badge}
+                        Icon={item.icon}
+                        label={item.label}
+                        path={item.path}
+                        divider={item.divider}
+                        badge={item.badge}
                         key={index}
                     />
                 ) : (
                     <SidebarNestedItem
-                        Icon={item?.icon}
-                        label={item?.label}
-                        divider={item?.divider}
-                        subItems={item?.children}
+                        Icon={item.icon}
+                        label={item.label}
+                        divider={item.divider}
+                        subItems={item.children}
                         key={index}
                     />
                 ),

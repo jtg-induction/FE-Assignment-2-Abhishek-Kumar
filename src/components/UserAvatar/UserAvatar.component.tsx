@@ -62,7 +62,7 @@ export const UserAvatar = () => {
             >
                 <Avatar
                     alt="user image"
-                    src={user?.avatar}
+                    src={user.avatar}
                     sx={{ width: 32, height: 32 }}
                 />
             </IconButton>
@@ -79,11 +79,11 @@ export const UserAvatar = () => {
             >
                 <List>
                     <ListItem>
-                        <ListItemText>{user?.name}</ListItemText>
+                        <ListItemText>{user.name}</ListItemText>
                     </ListItem>
                     <Divider component="li" />
                     <ListItem>
-                        <ListItemText>{user?.email}</ListItemText>
+                        <ListItemText>{user.email}</ListItemText>
                     </ListItem>
                 </List>
             </Popover>

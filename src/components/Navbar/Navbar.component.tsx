@@ -90,7 +90,7 @@ export const Navbar = ({ setIsSidebarOpen }: NavbarPropsInterface) => {
                                 ) => {
                                     if (typeof option === 'string')
                                         return option;
-                                    return option?.name;
+                                    return option.name;
                                 }}
                                 onChangeHandler={(
                                     selectedProduct: ProductInterface | string,
@@ -99,7 +99,7 @@ export const Navbar = ({ setIsSidebarOpen }: NavbarPropsInterface) => {
                                         navigate(`/product/${selectedProduct}`);
                                     } else {
                                         navigate(
-                                            `/product/${selectedProduct?.name}`,
+                                            `/product/${selectedProduct.name}`,
                                         );
                                     }
                                 }}
