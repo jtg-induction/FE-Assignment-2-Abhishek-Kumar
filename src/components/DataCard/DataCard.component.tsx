@@ -2,8 +2,6 @@ import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
-import { formatNumber } from '@utils/formatNumber';
-
 import { DataCardPropsInterface } from './DataCard.types';
 
 export const DataCard = ({
@@ -29,9 +27,7 @@ export const DataCard = ({
                 </Box>
             </Box>
             <Box display="flex" gap={1}>
-                <Typography variant="h4">
-                    {avatar ? `$${formatNumber(value)}` : formatNumber(value)}
-                </Typography>
+                <Typography variant="h4">{value}</Typography>
                 {!avatar && (
                     <Typography variant="caption" color="textSecondary">
                         sales

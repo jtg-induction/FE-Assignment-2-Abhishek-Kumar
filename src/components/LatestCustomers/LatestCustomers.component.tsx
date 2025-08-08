@@ -9,6 +9,7 @@ import { DataCard } from '@components/DataCard';
 import { apiUrls } from '@constant';
 import { useFetch } from '@hooks/useFetch';
 import { CustomerInterface } from '@models/customer';
+import { formatNumber } from '@utils/formatNumber';
 
 export const LatestCustomers = () => {
     const { fetchData, data } = useFetch<CustomerInterface[]>();
@@ -32,7 +33,7 @@ export const LatestCustomers = () => {
                                 <DataCard
                                     title={item.name}
                                     description={item.email}
-                                    value={item.amountSpent}
+                                    value={`$${formatNumber(item.amountSpent)}`}
                                     avatar={item.avatar}
                                     key={index}
                                 />

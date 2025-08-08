@@ -25,7 +25,6 @@ export const Overview = () => {
                     <TopProducts />
                 </Grid>
             </Grid>
-            Overview
         </Box>
     );
 };

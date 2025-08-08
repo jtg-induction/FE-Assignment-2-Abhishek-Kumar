@@ -1,6 +1,7 @@
-import { List, Stack } from '@mui/material';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
+import List from '@mui/material/List';
+import Stack from '@mui/material/Stack';
 
 import { SidebarFooter } from '@components/SidebarFooter';
 import { SidebarItem } from '@components/SidebarItem';
@@ -17,7 +18,7 @@ export const Sidebar = ({ isOpen, setIsOpen }: SidebarPropsInterface) => {
 
     const drawer = (
         <List>
-            {sidebarData?.map((item, index) =>
+            {sidebarData.map((item, index) =>
                 item?.path ? (
                     <SidebarItem
                         Icon={item?.icon}

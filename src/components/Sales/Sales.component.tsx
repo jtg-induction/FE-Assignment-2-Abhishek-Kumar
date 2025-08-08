@@ -20,7 +20,7 @@ export const Sales = () => {
             url: '/data/sales.json',
             method: 'GET',
         });
-    }, [fetchData]);
+    }, []);
 
     return (
         <Paper sx={{ p: 8, borderRadius: 4 }}>
@@ -36,7 +36,7 @@ export const Sales = () => {
             <Box height={350} width={'100%'} mt={8}>
                 {data && (
                     <LineCharts
-                        data={data?.map((item) => ({
+                        data={data.map((item) => ({
                             name: item.date,
                             sale: item.amount,
                         }))}

@@ -1,15 +1,15 @@
 import { useNavigate } from 'react-router';
 
+import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
-import Stack from '@mui/material/Stack';
 
 import { sidebarFooterData } from './SidebarFooter.config';
 
 export const SidebarFooter = () => {
     const navigate = useNavigate();
     return (
-        <Stack
-            direction="row"
+        <Box
+            display="flex"
             gap={2}
             alignItems="center"
             justifyContent="center"
@@ -26,6 +26,6 @@ export const SidebarFooter = () => {
                     <Icon />
                 </IconButton>
             ))}
-        </Stack>
+        </Box>
     );
 };
