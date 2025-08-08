@@ -21,8 +21,9 @@ import { useFetch } from '@hooks/useFetch';
 import { ProductInterface } from '@models/product';
 
 import { useStyles } from './Navbar.styles';
+import { NavbarPropsInterface } from './Navbar.types';
 
-export const Navbar = () => {
+export const Navbar = ({ setIsSidebarOpen }: NavbarPropsInterface) => {
     const navigate = useNavigate();
 
     const { classes } = useStyles();
@@ -46,14 +47,19 @@ export const Navbar = () => {
 
     return (
         <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="sticky" className={classes.header}>
+            <AppBar position="fixed" className={classes.header}>
                 <Toolbar>
                     <IconButton
                         size="large"
                         edge="start"
-                        color="inherit"
+                        sx={({ palette }) => ({ color: palette.text.primary })}
                         aria-label="open drawer"
                         className={classes.menuButton}
+                        onClick={() => {
+                            if (setIsSidebarOpen) {
+                                setIsSidebarOpen((prev) => !prev);
+                            }
+                        }}
                     >
                         <FormatAlignLeftIcon />
                     </IconButton>
@@ -108,8 +114,8 @@ export const Navbar = () => {
                         <UserAvatar />
                     </Stack>
                 </Toolbar>
+                <Divider />
             </AppBar>
-            <Divider />
         </Box>
     );
 };

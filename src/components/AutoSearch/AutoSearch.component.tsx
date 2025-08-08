@@ -1,6 +1,6 @@
 import { Search } from '@mui/icons-material';
 import { AutocompleteRenderInputParams } from '@mui/material';
-import { Autocomplete } from '@mui/material';
+import Autocomplete from '@mui/material/Autocomplete';
 import InputAdornment from '@mui/material/InputAdornment';
 import TextField from '@mui/material/TextField';
 

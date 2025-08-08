@@ -16,7 +16,7 @@ export const Notification = () => {
         <IconButton
             size="large"
             aria-label="show notifications"
-            color="inherit"
+            sx={({ palette }) => ({ color: palette.text.primary })}
             onClick={() => {
                 navigate('/notifications');
             }}

@@ -3,10 +3,11 @@ import { makeStyles } from 'tss-react/mui';
 import { Theme } from '@mui/material';
 
 export const useStyles = makeStyles()(
-    ({ palette, breakpoints, spacing }: Theme) => ({
+    ({ palette, breakpoints, spacing, zIndex }: Theme) => ({
         header: {
             backgroundColor: palette.background.paper,
             boxShadow: 'none',
+            zIndex: zIndex.drawer + 1,
         },
 
         menuButton: {
