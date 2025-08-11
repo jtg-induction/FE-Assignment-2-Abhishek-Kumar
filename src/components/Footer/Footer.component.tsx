@@ -16,7 +16,8 @@ export const Footer = () => {
                 gap={8}
             >
                 <Typography variant="h5" color="text.secondary">
-                    © 2021 Themesberg, LLC. All rights reserved.
+                    © {new Date().getFullYear()} Themesberg, LLC. All rights
+                    reserved.
                 </Typography>
 
                 <Box display="flex" gap={2}>

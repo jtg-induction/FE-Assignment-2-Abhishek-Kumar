@@ -4,5 +4,5 @@ export interface TransactionInterface {
     date: string;
     amount: number;
     type: 'Credit' | 'Debit';
-    status: 'Completed' | 'Cancelled' | 'In progress' | 'Failed';
+    status: number;
 }

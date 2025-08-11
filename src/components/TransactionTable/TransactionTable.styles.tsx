@@ -29,13 +29,6 @@ export const useStyles = makeStyles()(({ spacing }) => ({
         },
     },
 
-    statusChip: {
-        padding: 4,
-        paddingLeft: 16,
-        paddingRight: 16,
-        textWrap: 'nowrap',
-    },
-
     transactionColumn: {
         borderTopLeftRadius: spacing(3),
         borderBottomLeftRadius: spacing(3),
