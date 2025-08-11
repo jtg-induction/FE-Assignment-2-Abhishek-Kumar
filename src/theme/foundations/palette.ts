@@ -17,15 +17,21 @@ export const palette: PaletteOptions = {
     },
 
     error: {
-        main: COLORS.RED[500],
-        dark: COLORS.RED[800],
-        light: COLORS.RED[200],
+        main: COLORS.RED[200],
+        dark: COLORS.RED[500],
+        contrastText: COLORS.RED[800],
     },
 
     info: {
-        main: COLORS.BLUE[500],
-        dark: COLORS.BLUE[800],
-        light: COLORS.BLUE[100],
+        main: COLORS.BLUE[100],
+        dark: COLORS.BLUE[500],
+        contrastText: COLORS.BLUE[800],
+    },
+
+    success: {
+        main: COLORS.PRIMARY[100],
+        dark: COLORS.PRIMARY[500],
+        contrastText: COLORS.PRIMARY[800],
     },
 
     background: {

@@ -21,7 +21,7 @@ export const Notification = () => {
                 navigate('/notifications');
             }}
         >
-            <Badge badgeContent={user.notifications} color="secondary">
+            <Badge badgeContent={user.notifications} color="success">
                 <NotificationsIcon />
             </Badge>
         </IconButton>

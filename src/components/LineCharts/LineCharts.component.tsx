@@ -10,7 +10,10 @@ import {
 
 import { useTheme } from '@mui/material';
 
-import { formatDateWithYear, formatShortDate } from '@utils/dateFormatter';
+import {
+    formatDayMonthShort,
+    formatDayMonthYearShort,
+} from '@utils/dateFormatter';
 import { formatNumber } from '@utils/formatNumber';
 
 import { SalesLineChartProps } from './LineCharts.types';
@@ -33,7 +36,7 @@ export const LineCharts = ({ data }: SalesLineChartProps) => {
                     axisLine={false}
                     tickLine={false}
                     tickMargin={20}
-                    tickFormatter={(tick: string) => formatShortDate(tick)}
+                    tickFormatter={(tick: string) => formatDayMonthShort(tick)}
                 />
                 <YAxis
                     axisLine={false}
@@ -49,7 +52,7 @@ export const LineCharts = ({ data }: SalesLineChartProps) => {
                         ];
                     }}
                     labelFormatter={(label: string) =>
-                        formatDateWithYear(label)
+                        formatDayMonthYearShort(label)
                     }
                 />
                 <Line

@@ -2,5 +2,5 @@
     "name": "Alice Johnson",
     "email": "alice.johnson@example.com",
     "notifications": 3,
-    "avatar": "../src/assets/images/jack.png"
+    "avatar": "/assets/images/jack.png"
 }
