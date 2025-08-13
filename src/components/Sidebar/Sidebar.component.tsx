@@ -12,7 +12,11 @@ import { sidebarData } from './Sidebar.config';
 import { useStyles } from './Sidebar.styles';
 import { SidebarPropsInterface } from './Sidebar.types';
 
-export const Sidebar = ({ isOpen, setIsOpen }: SidebarPropsInterface) => {
+export const Sidebar = ({
+    isOpen,
+    setIsOpen,
+    isDesktopHidden,
+}: SidebarPropsInterface) => {
     const { isDesktop } = useBreakPoints();
     const { classes } = useStyles();
 
@@ -51,6 +55,9 @@ export const Sidebar = ({ isOpen, setIsOpen }: SidebarPropsInterface) => {
                 variant={isDesktop ? 'permanent' : 'temporary'}
                 open={isOpen}
                 onClose={() => setIsOpen(false)}
+                sx={{
+                    display: isDesktopHidden && isDesktop ? 'none' : 'block',
+                }}
                 className={classes.drawer}
             >
                 <Stack height="94%" justifyContent="space-between">

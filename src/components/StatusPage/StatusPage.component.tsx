@@ -46,7 +46,7 @@ export const StatusPage = ({
             <Button
                 onClick={onClickHandler}
                 variant="contained"
-                sx={{ borderRadius: 3 }}
+                sx={{ borderRadius: 3, textTransform: 'none' }}
             >
                 {buttonText}
             </Button>

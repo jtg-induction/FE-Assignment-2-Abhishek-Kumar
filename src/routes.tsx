@@ -1,7 +1,6 @@
 import { ErrorBoundary } from 'react-error-boundary';
 import { createBrowserRouter } from 'react-router';
 
-import { NavbarLayout } from '@layouts/NavbarLayout';
 import { NavbarSidebarLayout } from '@layouts/NavbarSidebarLayout';
 import { Overview } from '@pages/dashboard/Overview';
 import { Error } from '@pages/Error';
@@ -26,15 +25,9 @@ const routes = createBrowserRouter([
         path: '*',
         element: (
             <ErrorBoundary fallback={<Error />}>
-                <NavbarLayout />
+                <NotFound />
             </ErrorBoundary>
         ),
-        children: [
-            {
-                path: '*',
-                element: <NotFound />,
-            },
-        ],
     },
 ]);
 
