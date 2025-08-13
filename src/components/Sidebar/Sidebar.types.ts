@@ -3,6 +3,7 @@ import { Dispatch, ElementType, SetStateAction } from 'react';
 export interface SidebarPropsInterface {
     isOpen: boolean;
     setIsOpen: Dispatch<SetStateAction<boolean>>;
+    isDesktopHidden?: boolean;
 }
 
 export interface SidebarItem {

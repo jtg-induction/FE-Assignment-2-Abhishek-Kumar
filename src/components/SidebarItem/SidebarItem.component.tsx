@@ -32,7 +32,7 @@ export const SidebarItem = ({
                         <Icon />
                     </ListItemIcon>
                     <ListItemText primary={label} />
-                    {badge && <Badge badgeContent={badge} />}
+                    {badge && <Badge badgeContent={badge} color="error" />}
                 </ListItemButton>
             </ListItem>
             {divider && <Divider />}

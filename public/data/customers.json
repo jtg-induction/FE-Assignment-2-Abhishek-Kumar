@@ -2,37 +2,37 @@
     {
         "name": "Robert Vasquez",
         "email": "peterseth@white.org",
-        "avatar": "../src/assets/images/joe.png",
+        "avatar": "/assets/images/joe.png",
         "amountSpent": 116
     },
     {
         "name": "Richard Martinez",
         "email": "linda83@hotmail.com",
-        "avatar": "../src/assets/images/jack.png",
+        "avatar": "/assets/images/jack.png",
         "amountSpent": 564
     },
     {
         "name": "Tina Bennett",
         "email": "edgarhicks@gmail.com",
-        "avatar": "../src/assets/images/sophia.png",
+        "avatar": "/assets/images/sophia.png",
         "amountSpent": 931
     },
     {
         "name": "James Phillips",
         "email": "jose30@gmail.com",
-        "avatar": "../src/assets/images/jack.png",
+        "avatar": "/assets/images/jack.png",
         "amountSpent": 1047
     },
     {
         "name": "Stacy Jones",
         "email": "fergusonlauren@gmail.com",
-        "avatar": "../src/assets/images/sophia.png",
+        "avatar": "/assets/images/sophia.png",
         "amountSpent": 9895
     },
     {
         "name": "Diana Cox",
         "email": "connertracy@yahoo.com",
-        "avatar": "../src/assets/images/joe.png",
+        "avatar": "/assets/images/joe.png",
         "amountSpent": 1065
     }
 ]
