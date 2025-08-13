@@ -14,15 +14,15 @@ export const StatusPage = ({
 }: StatusPagePropsInterface) => {
     return (
         <Box
-            width="100%"
             display="flex"
             height="90vh"
             flexDirection="column"
             alignItems="center"
             justifyContent="center"
+            margin={4}
             gap={4}
         >
-            <Box height={{ xs: 200, md: 400 }}>
+            <Box height={{ xs: '30%', md: '50%' }}>
                 <Box
                     component="img"
                     src={imageUrl}
